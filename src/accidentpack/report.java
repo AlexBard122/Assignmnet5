@@ -1,33 +1,34 @@
 package accidentpack;
 
+import java.time.LocalDate;
 
 /**
- * @author abard
+ * @author abard & Devin C
  *
  */
 public class report implements Comparable <report>{
 	private String ID;
 	private int Severity;
-	private String StartTime;
-	private String EndTime;
+	private LocalDate StartTime;
+	private LocalDate EndTime;
 	private String Street;
 	private String City;
 	private String County;
 	private String State;
-	private String Temp;
-	private String Humidity;
-	private Double Visibility;
+	private int Temp;
+	private int Humidity;
+	private int Visibility;
 	private String Weather;
 	private boolean Crossing;
-	private String DayNight;
+	private boolean DayNight;
 	
-	public report(String ID, int Severity, String StartTime, String EndTime, String Street,
-			String City, String County, String State, String Temp,String Humidity, Double Visibility,
-			String Weather, boolean Crossing, String DayNight) {
+	public report(String ID, int Severity, LocalDate startTime, LocalDate endTime, String Street,
+			String City, String County, String State, int Temp,int Humidity, int Visibility,
+			String Weather, boolean Crossing, boolean DayNight) {
 		this.ID = ID;
 		this.Severity = Severity;
-		this.StartTime = StartTime;
-		this.EndTime = EndTime;
+		this.StartTime = startTime;
+		this.EndTime = endTime;
 		this.Street = Street;
 		this.City = City;
 		this.County = County;
@@ -54,16 +55,16 @@ public class report implements Comparable <report>{
 	public void setSeverity(int Severity) {
 		this.Severity = Severity;
 	}
-	public String getStartTime() {
+	public LocalDate getStartTime() {
 		return StartTime;
 	}
-	public void setStartTime(String StartTime) {
+	public void setStartTime(LocalDate StartTime) {
 		this.StartTime = StartTime;
 	}
-	public String getEndTime() {
+	public LocalDate getEndTime() {
 		return EndTime;
 	}
-	public void setEndTime(String EndTime) {
+	public void setEndTime(LocalDate EndTime) {
 		this.EndTime = EndTime;
 	}
 	public String getStreet() {
@@ -90,22 +91,22 @@ public class report implements Comparable <report>{
 	public void setState(String State) {
 		this.State = State;
 	}
-	public String getTemp() {
+	public int getTemp() {
 		return Temp;
 	}
-	public void setTemp(String Temp) {
+	public void setTemp(int Temp) {
 		this.Temp = Temp;
 	}
-	public String getHumidity() {
+	public int getHumidity() {
 		return Humidity;
 	}
-	public void setHumidity(String Humidity) {
+	public void setHumidity(int Humidity) {
 		this.Humidity = Humidity;
 	}
-	public Double getVisibility() {
+	public int getVisibility() {
 		return Visibility;
 	}
-	public void setVisibility(Double Visibility) {
+	public void setVisibility(int Visibility) {
 		this.Visibility = Visibility;
 	}
 	public String getWeather() {
@@ -120,24 +121,15 @@ public class report implements Comparable <report>{
 	public void setCrossing(boolean Crossing) {
 		this.Crossing = Crossing;
 	}
-	public String getDayNight() {
+	public boolean getDayNight() {
 		return DayNight;
 	}
-	public void setDayNight(String DayNight) {
+	public void setDayNight(boolean DayNight) {
 		this.DayNight = DayNight;
 	}
 
-
-
-	@Override
-	public int compareTo(report r) {
-		if(this.Visibility > r.Visibility) {
-			return -1;
-		}else if(this.Visibility < r.Visibility) {
-			return 1;
-		}else {
-			return 0;
-		}
-	}
-	
+    @Override
+    public int compareTo(report r) {
+        return this.StartTime.compareTo(r.getStartTime());
+    } 
 }
