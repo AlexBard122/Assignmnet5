@@ -8,6 +8,7 @@ Devin:  1
 Note:   We will likely collaborate on 3. Need to discuss later.
 
 Tasks:
+
   1: Read reports into a binary search tree based on start time. Each node must have 2 additional fields to keep track
      of its left and right node amounts.
      Note: One binary tree per state
