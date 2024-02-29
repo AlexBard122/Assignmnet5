@@ -4,7 +4,7 @@ Team Members: Alex Bard & Devin Chamberlain
 
 Task Distribution:
 Alex:   2 & 4
-Devin:  1
+Devin:  1 
 Note:   We will likely collaborate on 3. Need to discuss later.
 
 Tasks:
