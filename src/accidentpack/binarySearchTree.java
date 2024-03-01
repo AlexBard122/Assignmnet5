@@ -3,6 +3,7 @@
  */
 package accidentpack;
 
+import java.time.LocalDate;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
@@ -115,6 +116,39 @@ public class binarySearchTree implements Iterable<report> {
      */
     public Node getRoot() {
         return root;
+    }
+    
+    /**
+     * Calculates the number of records in the binary search tree
+     * with a start time on or after the specified date.
+     * 
+     * @param date the start time to compare against
+     * @return the number of records with start time on or after the specified date
+     */
+    public int numOnOrAfter(LocalDate date) {
+        return numOnOrAfter(root, date);
+    }
+
+    /**
+     * Recursive helper method to calculate the number of records in the subtree 
+     * rooted at a given node with a start time on or after the specified date.
+     * 
+     * @param node the root of the subtree
+     * @param date the start time to compare against
+     * @return the number of records in the subtree with start time on or after the specified date
+     */
+    private int numOnOrAfter(Node node, LocalDate date) {
+        if (node == null) {
+            return 0;
+        }
+        // If the start time of the current node is on or after the specified date,
+        // count the node itself and recursively count records in left and right subtrees
+        if (node.data.getStartTime().isAfter(date) || node.data.getStartTime().isEqual(date)) {
+            return 1 + numOnOrAfter(node.left, date) + numOnOrAfter(node.right, date);
+        } else {
+            // If the start time is before the specified date, only consider the right subtree
+            return numOnOrAfter(node.right, date);
+        }
     }
     
     @Override
