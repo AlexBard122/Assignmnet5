@@ -53,7 +53,7 @@ public class program5 {
 		reportCount = reportHelper.calculateReports(report, state, date.concat(" 00:00:00"));
 		time2 = System.nanoTime();
 		processTime = reportHelper.convertTime(time1, time2);
-		System.out.println(reportCount + " reports are available for " + state + "on and after the date " + date);
+		System.out.println(reportCount + " reports are available for " + state + " on and after the date " + date);
 		System.out.println(processTime + " seconds to calculate this using recursive method");
 	}
 

@@ -34,10 +34,10 @@ public class reportHelper {
 		
 		while(root != null) {
 			//if node date is less than user date, move to right child
-			if(root.data.getStartTime().equals(givenDate))
+			if(root.data.getStartTime().isBefore(givenDate))
 				root = root.right;
 			//if node date is greater than or equal to the user date, return number of children
-			if(root.data.getStartTime().equals(givenDate))
+			else
 				return root.rightChildren + 1;
 		}
 		//no reports found
