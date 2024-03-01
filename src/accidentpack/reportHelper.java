@@ -45,6 +45,18 @@ public class reportHelper {
 	}
 	/**
 	 * @author abard
+	 * returns the number of reports on or after the given date in the given state (recursive version)
+	 * @param report
+	 * @param state
+	 * @param date
+	 * @return int
+	 */
+	public static int recursiveCalculateReports(ArrayList<binarySearchTree> report, String state, String date) {
+		LocalDate givenDate = dateConvert(date);
+		return report.get(getStateIndex(state,report)).numOnOrAfter(givenDate);
+	}
+	/**
+	 * @author abard
 	 * calculates elapsed time and converts it to seconds
 	 * @param time1
 	 * @param time2
