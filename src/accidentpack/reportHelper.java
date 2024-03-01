@@ -11,11 +11,51 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import accidentpack.binarySearchTree.Node;
+
 /**
  * @author abard & Devin C
  *
  */
 public class reportHelper {
+	
+	/**
+	 * @author abard
+	 * returns the number of reports found in a binary tree after a given date
+	 * @param report
+	 * @param state
+	 * @param date
+	 * @return int
+	 */
+	public static int calculateReports(ArrayList<binarySearchTree> report, String state, String date) {
+		
+		Node root = report.get(getStateIndex(state, report)).root;
+		LocalDate givenDate = dateConvert(date);
+		
+		while(root != null) {
+			//if node date is less than user date, move to right child
+			if(root.data.getStartTime().equals(givenDate))
+				root = root.right;
+			//if node date is greater than or equal to the user date, return number of children
+			if(root.data.getStartTime().equals(givenDate))
+				return root.rightChildren + 1;
+		}
+		//no reports found
+		return 0;
+	}
+	/**
+	 * @author abard
+	 * calculates elapsed time and converts it to seconds
+	 * @param time1
+	 * @param time2
+	 * @return String
+	 */
+	public static String convertTime(long time1, long time2) {
+		long elapsedTime = time2 - time1;
+		double elapsedTimeSeconds;
+		elapsedTimeSeconds = elapsedTime / 1000000000;
+		return String.valueOf(elapsedTimeSeconds);
+	}
     /**
      * Reads lines from a CSV file and creates separate binary search trees for each state,
      * adding reports to their respective trees based on the state attribute.
