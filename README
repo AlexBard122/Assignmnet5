@@ -1,0 +1,55 @@
+README file
+
+Execution instructions:
+
+From file location of .java files
+type cmd into file explorer
+in cmd.exe:
+	javac report.java
+	javac Reporthelper.java
+	javac program5.java
+	javac binarySearchTree.java
+	java program4 <filepath of accidents.csv> <state> <date>
+													  // date must be in format year-month-day xxxx-xx-xx
+													  
+
+Alex:
+GitHub Project Manager
+Program Debugger
+Tasks:
+	Handling user input
+	Main method setup
+	Main method outputs
+	README file management
+	Task 2 method
+	PDF file management
+Methods:
+	program5:
+		main()
+	report:
+		(note: original class and methods were provided by Alex but modified by Devin to handle LocalDate objects)
+	reportHelper:
+		calculateReports()
+		RecursivlyCalculateReports()
+		convertTime()
+		readfile()
+		ReadCSVFile()
+		
+Devin:
+Head Programmer
+Program Debugger
+Tasks:
+	Task 1 (reading reports into binary search tree)
+	Task 3 (create recursive method for counting reports)
+	Updating old code with Professor's methods
+Methods:
+	binarySearchTree:
+		(note: All work on this class was handled by Devin. Will not list methods here for brevity)
+	reportHelper:
+		ReadCSVFile() (note: original method provided by Alex, modified for use with binary tree structure by Devin)
+		readfile()
+		dateConvert() (note: original method made by Dr. Behrooz Mansouri, added by Devin)
+		
+	
+	
+	
