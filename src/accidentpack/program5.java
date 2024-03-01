@@ -13,10 +13,14 @@ import java.util.ArrayList;
 public class program5 {
 
 	/**
+	 * @author abard
+	 * main method for executing program
 	 * @param args
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
+		
+		//will break up into smaller methods which will be moved to reportHelper in final version
 		
 		//readFile = input file
 		String filePath = args[0]; //accidents_small_sample.csv
@@ -45,7 +49,12 @@ public class program5 {
 		System.out.println(processTime + " seconds to calculate this using children count fields");
 		
 		//find report number with recursive method
-		
+		time1 = System.nanoTime();
+		reportCount = reportHelper.calculateReports(report, state, date.concat(" 00:00:00"));
+		time2 = System.nanoTime();
+		processTime = reportHelper.convertTime(time1, time2);
+		System.out.println(reportCount + " reports are available for " + state + "on and after the date " + date);
+		System.out.println(processTime + " seconds to calculate this using recursive method");
 	}
 
 }
