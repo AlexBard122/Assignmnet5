@@ -117,6 +117,29 @@ public class binarySearchTree implements Iterable<report> {
         return root;
     }
     
+    /**
+     * Calculates the number of records in the binary search tree.
+     * 
+     * @return the number of records
+     */
+    public int size() {
+        return size(root);
+    }
+
+    /**
+     * Recursive helper method to calculate the number of records in the subtree rooted at a given node.
+     * 
+     * @param node the root of the subtree
+     * @return the number of records in the subtree
+     */
+    private int size(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        // Count the node itself and recursively count records in left and right subtrees
+        return 1 + size(node.left) + size(node.right);
+    }
+    
     @Override
     public Iterator<report> iterator() {
         return new BSTIterator(root);
