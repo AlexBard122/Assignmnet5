@@ -4,10 +4,6 @@
 package accidentpack;
 
 import java.time.LocalDate;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * Represents a binary search tree data structure.
@@ -15,7 +11,7 @@ import java.util.NoSuchElementException;
  * @author Devin C
  * @version February 29, 2024
  */
-public class binarySearchTree implements Iterable<report> {
+public class binarySearchTree {
     /**
      * Represents a node in the binary search tree.
      */
