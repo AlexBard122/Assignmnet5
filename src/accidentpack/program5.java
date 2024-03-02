@@ -50,7 +50,7 @@ public class program5 {
 		
 		//find report number with recursive method
 		time1 = System.nanoTime();
-		reportCount = reportHelper.calculateReports(report, state, date.concat(" 00:00:00"));
+		reportCount = reportHelper.recursiveCalculateReports(report, state, date.concat(" 00:00:00"));
 		time2 = System.nanoTime();
 		processTime = reportHelper.convertTime(time1, time2);
 		System.out.println(reportCount + " reports are available for " + state + " on and after the date " + date);

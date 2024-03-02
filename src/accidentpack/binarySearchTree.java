@@ -81,32 +81,34 @@ public class binarySearchTree implements Iterable<report> {
 
         return root;
     }
-    
+
     /**
-     * Update children count for ancestor nodes
+     * Updates the leftChildren and rightChildren counts for all nodes in the binary search tree.
+     * This method should be called after inserting a new node.
      * 
-     * @param node the node whose children count is to be updated
-     * @pre children are not up to date
-     * @post children count is updated
+     * @param root the root node of the binary search tree
      */
-    private void updateChildren(Node node) {
+    public void updateChildren(Node root) {
+        if (root != null) {
+            updateChildren(root.left); // Update left subtree
+            updateChildren(root.right); // Update right subtree
+            root.leftChildren = countChildren(root.left); // Update leftChildren for current node
+            root.rightChildren = countChildren(root.right); // Update rightChildren for current node
+        }
+    }
+
+    /**
+     * Counts the number of children for a given node.
+     * 
+     * @param node the node whose children count is to be calculated
+     * @return the total number of children for the given node
+     */
+    private int countChildren(Node node) {
         if (node == null) {
-            return;
+            return 0;
         }
-
-        // Update count for left subtree
-        if (node.left != null) {
-            node.leftChildren = node.left.leftChildren + node.left.rightChildren;
-        }
-
-        // Update count for right subtree
-        if (node.right != null) {
-            node.rightChildren = node.right.leftChildren + node.right.rightChildren;
-        }
-
-        // Recursively update count for ancestor nodes
-        updateChildren(node.left);
-        updateChildren(node.right);
+        // Total children count = left subtree children count + right subtree children count + 1 (for the node itself)
+        return node.leftChildren + node.rightChildren + 1;
     }
     
     /**
